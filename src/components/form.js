@@ -9,13 +9,13 @@ import {
   Input,
   Button,
 } from 'reactstrap';
+import { Spinner } from "reactstrap"
 
 function Loginform() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    
     const handleChange = (event) => {
      
         if(event.target.name === 'email'){
@@ -46,6 +46,7 @@ function Loginform() {
         // console.log('submit form');
         console.log(`Email: ${email}`);
         console.log(`password: ${password}`);
+        setIsLoading(true);
 
       }
 
@@ -53,8 +54,17 @@ function Loginform() {
         <>
     
         <div className="login-form">
-      
+        
             <h2 className='text-danger text-center'>Sign In</h2>
+            {isLoading ? 
+            <p  className='text-center'>
+            <Spinner animation="border" />
+          </p>
+           :
+            <></>
+            }
+            
+           
             <Form className="form" onSubmit={(e) => submitForm(e)}>
             <FormGroup>
                 <Label>Username</Label>
@@ -90,8 +100,8 @@ function Loginform() {
                 value={password}
                 onChange={(e) => handleChange(e)}
                 />
-            </FormGroup> <br/>
-            <Button className='btn btn-success'>Login</Button>
+            </FormGroup> 
+                <Button className='btn btn-success float-center'>Login</Button>
             </Form>
         </div>
         </>
