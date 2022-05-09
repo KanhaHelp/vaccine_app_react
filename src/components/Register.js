@@ -12,7 +12,7 @@ function Register() {
     const [password, setPassword] = useState('');
     const [cpassword, setcPassword] = useState('');
 
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => {
      
@@ -53,7 +53,7 @@ function Register() {
      
     const submitForm = (e) => {
         e.preventDefault();
-        setIsLoading(true);
+        // setIsLoading(true);
         console.log(firstname, lastname, address, mobile, age, email, password, cpassword);
        
       }
